@@ -1,5 +1,5 @@
 
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 class LayoutConfigLogic extends ChangeNotifier {
   bool _dark = false;

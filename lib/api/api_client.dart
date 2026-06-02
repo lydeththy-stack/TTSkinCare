@@ -1,5 +1,4 @@
 import 'package:http/http.dart' as http;
-
 const String baseUrl =
     'https://6a0e63031736097c3609c5f4.mockapi.io/api/v1/Product?page=1&limit=1000';
 

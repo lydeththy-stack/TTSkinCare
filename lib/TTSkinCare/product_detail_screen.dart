@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../cart_logic.dart';
 import '../model/product_model.dart';
+import 'url_util.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   final SkincareProduct item;
@@ -15,6 +16,8 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
+  final _urlUtil = UrlUtil();
+
   int _currentImage = 0;
 
   SkincareProduct get item => widget.item;
@@ -98,6 +101,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 // Price row
                 Row(
                   children: [
+                   
+                      
                     Text(
                       '\$${item.discountPrice}',
                       style: TextStyle(
@@ -133,6 +138,41 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ],
                   ],
                 ),
+               
+                    Row(
+  children: [
+    Expanded(
+      child: Card(
+        color: Theme.of(context).colorScheme.inversePrimary,
+        child: ListTile(
+          leading: const Icon(Icons.call),
+          title: const Text("Call"),
+          onTap: () {
+            String number = "+1234567890";
+            _urlUtil.open("tel:$number");
+          },
+        ),
+      ),
+    ),
+
+    const SizedBox(width: 10),
+
+    Expanded(
+      child: Card(
+        color: Theme.of(context).colorScheme.inversePrimary,
+        child: ListTile(
+          leading: const Icon(Icons.directions),
+          title: const Text("Map"),
+          onTap: () {
+            const String map =
+                "https://www.google.com/maps/place/National+University+of+Management/@11.5747699,104.8424093,13z/data=!4m10!1m2!2m1!1snum!3m6!1s0x310951431e152d17:0x9b79af8befbd4a18!8m2!3d11.5747699!4d104.918627!15sCgNudW2SAQp1bml2ZXJzaXR54AEA!16s%2Fm%2F0279my9?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D";
+            _urlUtil.open(map);
+          },
+        ),
+      ),
+    ),
+  ],
+),
                 const SizedBox(height: 16),
                 const Divider(),
                 const SizedBox(height: 8),
@@ -158,11 +198,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
                       );
                     },
+                    
                     icon: Icon(inCart
                         ? Icons.shopping_bag
                         : Icons.shopping_bag_outlined),
                     label: Text(inCart ? 'Add More to Cart' : 'Add to Cart'),
+                
                   ),
+                
                 ),
                 const SizedBox(height: 32),
               ],

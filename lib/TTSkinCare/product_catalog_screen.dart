@@ -120,6 +120,8 @@ class _ProductCatalogScreenState extends State<ProductCatalogScreen> {
       height: 48,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        physics: const AlwaysScrollableScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         itemCount: _categories.length,
         separatorBuilder: (_, __) => const SizedBox(width: 8),
