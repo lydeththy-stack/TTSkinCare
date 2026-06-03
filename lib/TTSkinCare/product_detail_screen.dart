@@ -124,13 +124,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8, vertical: 3),
                         decoration: BoxDecoration(
-                          color: Colors.pinkAccent.withOpacity(0.15),
+                          color: Colors.blueAccent.withOpacity(0.15),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Text(
                           'Save ${item.discountPercent}%',
                           style: const TextStyle(
-                              color: Colors.pinkAccent,
+                              color: Colors.blueAccent,
                               fontWeight: FontWeight.bold,
                               fontSize: 12),
                         ),
@@ -159,7 +159,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
     Expanded(
       child: Card(
-        color: Theme.of(context).colorScheme.inversePrimary,
+        color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
         child: ListTile(
           leading: const Icon(Icons.directions),
           title: const Text("Map"),
