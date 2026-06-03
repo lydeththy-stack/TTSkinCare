@@ -124,13 +124,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8, vertical: 3),
                         decoration: BoxDecoration(
-                          color: Colors.blueAccent.withOpacity(0.15),
+                          color: Colors.redAccent.withOpacity(0.15),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Text(
                           'Save ${item.discountPercent}%',
                           style: const TextStyle(
-                              color: Colors.blueAccent,
+                              color: Colors.redAccent,
                               fontWeight: FontWeight.bold,
                               fontSize: 12),
                         ),
@@ -143,7 +143,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   children: [
     Expanded(
       child: Card(
-        color: Theme.of(context).colorScheme.inversePrimary,
+        color: Colors.blue.shade50,
         child: ListTile(
           leading: const Icon(Icons.call),
           title: const Text("Call"),
@@ -159,7 +159,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
     Expanded(
       child: Card(
-        color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+        color: Colors.blue.shade50,
         child: ListTile(
           leading: const Icon(Icons.directions),
           title: const Text("Map"),
@@ -188,7 +188,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 // Add to cart
                 SizedBox(
                   width: double.infinity,
-                  child: FilledButton.icon(
+                  child: FilledButton.icon( 
+                    style: FilledButton.styleFrom(
+                    backgroundColor: Colors.pink.shade100,
+                    foregroundColor: Colors.black,
+                     ),
                     onPressed: () {
                       context.read<CartLogic>().addItem(item);
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -208,6 +212,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 
                 ),
                 const SizedBox(height: 32),
+                
               ],
             ),
           ),
